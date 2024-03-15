@@ -1,0 +1,20 @@
+
+{
+    "schema_version": "v1",
+    "name_for_human": "心理游戏与测验",
+    "name_for_model": "psychquiz",
+    "description_for_human": "提供各种心理游戏和测验，旨在探索用户的性格特质、偏好和心理状态。包括性格测试、认知偏差游戏、情绪智力测试等，旨在通过游戏化的方式理解自我和人类心理的多样性。",
+    "description_for_model": "使用户通过参与心理游戏和测验来了解自己的性格特质、偏好和心理状态，帮助用户通过互动的方式提升自我认知。",
+    "auth": {
+        "type": "service_http"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "http://10.21.134.107:5000/.well-known/openapi.yaml"
+    },
+    "logo_url": "http://10.21.134.107:5000/logo.png",
+    "contact_email": "support@psychquiz.com",
+    "legal_info_url": "http://www.psychquiz.com/legal",
+    "examples": {"url": "http://10.21.134.107:5000/example.yaml"
+    }
+}

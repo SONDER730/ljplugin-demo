@@ -1,0 +1,93 @@
+openapi: 3.0.1
+info:
+  title: 心理游戏与测验
+  description: 提供各种心理游戏和测验，旨在探索用户的性格特质、偏好和心理状态。
+  version: "v1"
+servers:
+  - url: http://10.21.134.107:5000
+
+paths:
+
+  /personality_test:
+    get:
+      operationId: getPersonalityTest
+      summary: 获取性格测试
+      responses:
+        "200":
+          description: 提供性格测试题目
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalityTest"
+
+  /submit_answers:
+    post:
+      operationId: submitAnswers
+      summary: 提交测试答案，获取测试结果
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestAnswers"
+      responses:
+        "200":
+          description: 测试结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestResult"
+
+components:
+  schemas:
+    PersonalityTest:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Question"
+      required: [questions]
+      description: 性格测试题目列表
+    Question:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 题目ID
+        question:
+          type: string
+          description: 题目内容
+        options:
+          type: array
+          items:
+            type: string
+          description: 可选答案
+      required: [id, question, options]
+    TestAnswers:
+      type: object
+      properties:
+        answers:
+          type: array
+          items:
+            type: object
+            properties:
+              questionId:
+                type: integer
+                description: 题目ID
+              answer:
+                type: string
+                description: 用户的答案
+      required: [answers]
+      description: 用户提交的测试答案
+    TestResult:
+      type: object
+      properties:
+        personalityType:
+          type: string
+          description: 用户的性格类型
+        description:
+          type: string
+          description: 性格类型描述
+      required: [personalityType, description]
+      description: 测试结果和性格类型描述

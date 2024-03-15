@@ -1,0 +1,28 @@
+create:
+  success:
+    - errCode: quiz_started
+      actionName: 开始测试
+      actionContent: 性格测试开始，回答问题以了解更多关于自己的信息。
+    - errCode: quiz_completed
+      actionName: 完成测试
+      actionContent: 您已完成测试，正在生成报告中，请稍等。
+    - errCode: game_initiated
+      actionName: 游戏开始
+      actionContent: 认知偏差游戏已开始，让我们看看你的直觉有多准确。
+
+  error:
+    - errCode: quiz_error
+      actionName: 测试错误
+      actionContent: 测试过程中出现错误，请稍后重试。
+    - errCode: server_unavailable
+      actionName: 服务器不可用
+      actionContent: 服务器暂时不可用，请稍后再试。
+
+common:
+  error:
+    - errCode: auth_failed
+      actionName: 鉴权失败
+      actionContent: 用户鉴权失败，请确保你已登录并具有相应权限。
+    - errCode: invalid_request
+      actionName: 无效请求
+      actionContent: 请求格式错误，请检查后重试。

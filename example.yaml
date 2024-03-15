@@ -1,0 +1,44 @@
+version: 0.0.1
+examples:
+  - context: # 对话历史
+      - role: user
+        content: 我想了解我的性格类型
+      - role: bot
+        # 触发插件
+        plugin:
+          # 应当触发的接口operationId
+          operationId: getPersonalityTest
+          # 思考过程，对触发有帮助
+          thoughts: 用户对性格测试感兴趣
+          requestArguments: {}
+  - context: # 对话历史
+      - role: user
+        content: 我已经完成了测试，这是我的答案
+      - role: bot
+        # 触发插件
+        plugin:
+          # 应当触发的接口operationId
+          operationId: submitAnswers
+          # 思考过程，对触发有帮助
+          thoughts: 用户希望提交测试答案并获取结果
+          requestArguments:
+            answers: # 假设答案结构已定义
+  - context: # 对话历史
+      - role: user
+        content: 我对认知偏差很感兴趣
+      - role: bot
+        # 触发插件
+        plugin:
+          # 应当触发的接口operationId
+          operationId: getCognitiveBiasGame
+          # 思考过程，对触发有帮助
+          thoughts: 用户想要了解认知偏差相关的信息
+          requestArguments: {}
+# 反例，无需触发此插件的任一某个接口
+  - context: # 对话历史
+      - role: user
+        content: 你知道最近的天气预报吗？
+      - role: bot
+        # 无需触发
+        plugin:
+          thoughts: 这个请求与心理测验无关，不需要使用插件
