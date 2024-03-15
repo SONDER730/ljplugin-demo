@@ -10,11 +10,11 @@
     },
     "api": {
         "type": "openapi",
-        "url": "http://10.21.134.107:5000/.well-known/openapi.yaml"
+        "url": "http://885834j64f.zicp.fun/.well-known/openapi.yaml"
     },
-    "logo_url": "http://10.21.134.107:5000/logo.png",
+    "logo_url": "http://885834j64f.zicp.fun/logo.png",
     "contact_email": "support@psychquiz.com",
     "legal_info_url": "http://www.psychquiz.com/legal",
-    "examples": {"url": "http://10.21.134.107:5000/example.yaml"
+    "examples": {"url": "http://885834j64f.zicp.fun/example.yaml"
     }
 }
